@@ -1,0 +1,70 @@
+public class main {
+	
+	public static void main(String args[]) {
+		ArbitraryQueueArray x = new ArbitraryQueueArray(8);
+		x.push("hello");
+		x.push("Goodbye");
+		x.queue("Goodbye");
+		x.print();
+	}
+}
+class ArbitraryQueueArray{
+	int maxsize;
+	int first;
+	String array[];
+	public ArbitraryQueueArray(int n){
+		maxsize = n;
+		first = 0;
+		array = new String[maxsize];
+		
+	}
+	public boolean isEmpty(){
+		if (first == 0) {
+			return true;
+		}
+		else {
+			return false;
+		}
+		}
+	 public void push(String item)
+	 {
+	 if (first == array.length)
+		 {
+		 	resize(2 * array.length);
+		 }
+	 else {
+		 array[first++] = item;
+	 }
+	 }
+	 public String pop()
+	 {
+		 return array[--first]; 
+	 }
+	 private void resize(int capacity)
+	 {
+	  String[] copy = new String[capacity];
+	  for (int i = 0; i < first; i++) {
+		  copy[i] = array[i];
+		  array = copy;
+	  }
+	 }
+	 public void print()
+	 {
+		 for(int i = 0; i < array.length; i ++)
+		 {
+			 System.out.println(array[i]);
+		 }
+	 }
+	 public void queue(String item)
+	 {
+		 array[--maxsize] = item;
+	 }
+	 public String dequeue()
+	 {
+		 return array[--first];
+	 }
+	 public void traverse(int x)
+	 {
+		 array[x] = null;
+	 }
+}
