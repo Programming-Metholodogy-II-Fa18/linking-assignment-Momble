@@ -1,0 +1,80 @@
+public class main {
+	
+	public static void main(String args[]) {
+		
+	}
+}
+class Node
+{
+	public int data;
+	Node next;
+	
+	public Node (int key)
+	{
+		data = key;
+		next = null;
+	}
+	public void displayN() {
+		System.out.println(data);
+	}
+}
+class linkedlist{
+	public Node first;
+	public linkedlist()
+	{
+		first = null;
+	}
+	public void insert(int x)
+	{
+		Node newN = new Node(x);
+		newN.next = first;
+		first = newN; 
+	}
+	public Node delete() {
+		Node temp;
+		temp = first;
+		first =first.next;
+		return temp;
+	}
+	public void display()
+	{
+		while(first != null)
+		{
+			first.displayN();
+			first = first.next;
+		}
+		System.out.println(" ");
+	}
+	public int read()
+	{
+		return first.data;
+	}
+}
+class stack
+{
+	private linkedlist obj;
+	public stack()
+	{
+		obj = new linkedlist();
+	}
+	public void push(int i)
+	{
+		obj.insert(i);
+	}
+	public Node pop()
+	{
+		return obj.delete();
+	}
+	public void displaystack()
+	{
+		obj.display();
+	}
+	public void insertionsort()
+	{
+		int N = obj.length;
+	}
+	public int peek()
+	{
+		return obj.read();
+	}
+}
