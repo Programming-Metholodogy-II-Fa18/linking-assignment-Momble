@@ -69,9 +69,36 @@ class stack
 	{
 		obj.display();
 	}
-	public void insertionsort()
+	public void insertionsort(Node firstref)
 	{
-		int N = obj.length;
+		sorted = null;
+		Node current = firstref;
+		while(current != null)
+		
+		{
+			Node next = current.next;
+			sortedinsert(current);
+			current = next;
+		}
+		obj.first = sorted;
+	}
+	public void sortedinsertion(Node Newn)
+	{
+		if (sorted == null || sorted.data >= Newn.data)  
+        	{ 
+			Newn.next = sorted; 
+            		sorted = Newn; 
+        	} 
+        	else 
+        	{ 
+                     Node current = sorted; 
+                     while (current.next != null && current.next.data < Newn.data)  
+                     { 
+                     current = current.next; 
+                     } 
+                     Newn.next = current.next; 
+                     current.next = Newn; 
+                } 
 	}
 	public int peek()
 	{
