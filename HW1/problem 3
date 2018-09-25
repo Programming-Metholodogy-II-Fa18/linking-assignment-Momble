@@ -77,7 +77,7 @@ class stack
 		
 		{
 			Node next = current.next;
-			sortedinsert(current);
+			sortedinsertion(current);
 			current = next;
 		}
 		obj.first = sorted;
