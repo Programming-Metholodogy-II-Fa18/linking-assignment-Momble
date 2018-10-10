@@ -1,0 +1,54 @@
+import java.util.Arrays;
+public class main
+{
+	public static void mergeSort(int[] a, int arraySize)
+	{
+		int right = 0;
+		int left = arraySize -1;
+		if(right-left==0){
+	    }
+	    else if(right-left==1){
+	    	if(a[left]>a[right])
+	              swapindex(a,left,right);
+	        }
+	        else {
+	            int mid=((int) Math.floor((left+right)/2));
+
+	            mergeSort(a, arraySize);
+	            mergeSort(a,arraySize);
+	            merge(a,left,right,mid);
+	        }
+	}
+	
+	public static void main(String args[])
+	{
+		int y[] = {2,13,7,32,56,40,10};
+		System.out.println(Arrays.toString(a));
+		mergeSort(y,y.length);
+		System.out.println(Arrays.toString(a));
+	}
+	static void merge(int[]a,int left,int right,int mid) {
+		int start = left;
+		while(start<=mid) {
+			if(a[start]>a[mid+1]) {
+				swapindex(a,start,mid+1);
+				push(a,mid+1,right);
+			}
+			start++;
+		}
+	}
+	static void swapindex(int[] a, int l1, int l2) {
+		int x = a[l1];
+		a[l1]=a[l2];
+		a[l2]=x;
+	}
+	static void push(int[] a, int s, int d) {
+		for(int i = s;i < d; i++)
+		{
+			if(a[i] > a[i+1])
+			{
+				swapindex(a,i,i+1);
+			}
+		}
+	}
+}
