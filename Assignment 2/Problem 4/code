@@ -1,0 +1,24 @@
+public class main
+{
+	public static void Problem4a(int[] a, int arraySize)
+	{
+		 int n = arraySize; 
+	        for (int i = 0; i < n-1; i++) 
+	            for (int j = 0; j < n-i-1; j++) 
+	                if (a[j] > a[j+1]) 
+	                { 
+	                    int temp = a[j]; 
+	                    a[j] = a[j+1]; 
+	                    a[j+1] = temp; 
+	                } 
+	}
+	  public static void main(String args[]) {
+		  int[] array = {8,9,0,3,1};
+		  int n = array.length;
+		  Problem4a(array, n);
+		  for (int i = 0; i < n; i++)
+		  {
+			  System.out.print(array[i] + " ");
+		  }
+	  }
+}
