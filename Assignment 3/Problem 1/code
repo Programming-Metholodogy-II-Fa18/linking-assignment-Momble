@@ -1,0 +1,63 @@
+
+public class DaryHeap<Key extends Comparable<Key>> {
+	private Key[] heap;
+	private int N;
+	
+	
+	public DaryHeap(int d) {
+		heap = (Key[]) new Comparable[d+1];
+	}
+	public static void exch(Comparable[] a ,int b, int c)
+	{
+		Object s = a[b-1];
+		a[b-1] = a[c-1];
+		a[c-1] = s;
+	}
+	public static boolean less(Comparable[] a, int b, int c) {
+		return a[b-1].compareTo(a[c-1]) < 0; 
+	}
+	public static void sink(Comparable[] a, int b, int c)
+	{
+		while (2*b <= c)
+		{
+			int j = 2*b;
+			if(j < N && less(a,j, j+1))
+			{
+				c++;
+			}
+			if(!less(a,b, j))
+			{
+				break;
+			}
+			exch(a, b, j);
+			b = j;
+		}
+	}
+	public void insert(Key k)
+	{
+		heap[++N] = k;
+		swim(a, b, N);
+	}
+	public Key delMax() {
+		Key max = heap[1];
+		exch(a,1, N--);
+		sink(a, 1, N);
+		heap[N+1] = null;
+		return max;
+	}
+	public static void sort(Comparable[] a)
+	{
+		int N = a.length;
+		for(int k = 0; k >= 1; k--)
+		{
+			sink(a, k, N);
+		}
+		while(N > 1)
+		{
+			exch(a, 1, N);
+			sink(a, 1, --N);
+		}
+	}
+	
+
+}
